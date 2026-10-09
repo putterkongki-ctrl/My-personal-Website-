@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Website</title>
+  </head>
+  <body>
+<div id="loginPage">
+  <h2>🔐 เข้าสู่ระบบ</h2>
+  <input
+    type="email"
+    id="email"
+    placeholder="อีเมล"
+  >
+  <input
+    type="password"
+    id="password"
+    placeholder="รหัสผ่าน"
+  >
+  <button id="loginButton">OK</button>
+  <p id="error"></p>
+</div>
+<div id="mainPage" style="display: none;">
+  
+<nav>
+  <button id="infoNavButton">ข้อมูล</button>
+  <button id="timeNavButton">เวลา</button>
+  <button id="logoutButton">ออกจากระบบ</button>
+</nav>
+<div id="infoPage" style="display: none;">
+  <div style="display: flex; align-items: center; justify-content: space-between;">
+    <h2>ข้อมูลส่วนตัว</h2>
+    <button id="editButton">แก้ไข</button>
+  </div>
+
+  <div id="paper" contenteditable="false">
+  เริ่มเขียนข้อมูลของคุณที่นี่...
+</div>
+</div>
+<div id="timePage" style="display: none;">
+  <h2>ประวัติการใช้งาน</h2>
+  <button id="refreshLogsButton">รีเฟรชประวัติ</button>
+  <ul id="activityLogList"></ul>
+</div>
+</div>
+<!-- Firebase -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-app.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-auth.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-firestore.js";
+  const firebaseConfig = {
+    apiKey: "AIzaSyDyuaLvvKPVCMCQHfsQGTRMdiw4ViCj5yk",
+    authDomain: "my-personal-website-1-32f25.firebaseapp.com",
+    projectId: "my-personal-website-1-32f25",
+    storageBucket: "my-personal-website-1-32f25.firebasestorage.app",
+    messagingSenderId: "608140021264",
+    appId: "1:608140021264:web:262c3217d9a09928000495"
+  };
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  window.firebaseAuth = auth;
+  window.firebaseDb = getFirestore(app);
+</script>
+<script type="module" src="./script.js"></script>
+  </body>
+</html>
